@@ -27,6 +27,19 @@ void arrayDisp(int** arr, COORD dims){
     }
 }
 
+// determines the next antidiagonal coordinate from the given coordinate
+// returns and modifies the original
+COORD nextCoord(COORD* curr, COORD dims){
+    curr->col++;
+
+    if(curr->col >= dims.col){
+        curr->col = 0;
+        curr->row++;
+    }
+    
+    return *curr;
+}
+
 int main() {
     COORD dims;
     char* input = calloc(250, sizeof(char));
@@ -47,31 +60,32 @@ int main() {
         solution[i] = calloc(dims.col, sizeof(int));
 
     // filling the array with user values
-    for(int i = 0, x = 0, y = 0; i < totalElements; i++){
+    // for(int i = 0, x = 0, y = 0; i < totalElements; i++){
         
-        if(x >= dims.col){
-            x = 0;
-            y++;
-        }
+    //     if(x >= dims.col){
+    //         x = 0;
+    //         y++;
+    //     }
 
-        solution[y][x++] = atoi(strtok(NULL, " "));
+    //     solution[y][x++] = atoi(strtok(NULL, " "));
+    // }
+
+    COORD curr = {0, 0};
+    for(int i = 0; i < totalElements; i++){
+        solution[curr.row][curr.col] = atoi(strtok(NULL, " "));
+        nextCoord(&curr, dims);
     }
-
-    // int* raw = calloc(totalElements, sizeof(int));
-
-    // for(int i = 0; i < totalElements; i++){
-    //     raw[i] = atoi(strtok(NULL, " "));
-    // }
-
-    // for(int i = 0; i < totalElements; i++){
-    //     printf("%d ", raw[i]);
-    // }
-
-    // printf("\n\n I/O done!\n");
 
     arrayDisp(solution, dims);
 
+
+
     printf("\n\n display done!\n");
+
+
+    // antidiagonal sorting, selection sort
+
+    
     
 
 }
