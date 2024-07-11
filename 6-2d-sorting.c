@@ -5,6 +5,7 @@ disabled copilot completions
 
 v1
 start: 13:38
+break: 15:29
 
 */
 
@@ -40,6 +41,12 @@ COORD nextCoord(COORD* curr, COORD dims){
     return *curr;
 }
 
+void swap(int* x, int* y){
+    int z = *x;
+    *x = *y;
+    *y = z;
+}
+
 int main() {
     COORD dims;
     char* input = calloc(250, sizeof(char));
@@ -60,16 +67,6 @@ int main() {
         solution[i] = calloc(dims.col, sizeof(int));
 
     // filling the array with user values
-    // for(int i = 0, x = 0, y = 0; i < totalElements; i++){
-        
-    //     if(x >= dims.col){
-    //         x = 0;
-    //         y++;
-    //     }
-
-    //     solution[y][x++] = atoi(strtok(NULL, " "));
-    // }
-
     COORD curr = {0, 0};
     for(int i = 0; i < totalElements; i++){
         solution[curr.row][curr.col] = atoi(strtok(NULL, " "));
@@ -84,7 +81,15 @@ int main() {
 
 
     // antidiagonal sorting, selection sort
+    COORD toSwap = {0, 0};
+    for(int i = 0; i < totalElements; i++){
+        COORD consider = {toSwap.x, toSwap.y};
 
+        for(COORD** smallest;;){
+
+        }
+
+    }
     
     
 
