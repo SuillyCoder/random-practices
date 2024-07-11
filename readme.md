@@ -14,3 +14,4 @@ Some exist as standalone files while others exist as folders. Solutions in folde
 3. pokedex (2024-01-22)
 4. stdlib (2024-02-14)
 5. string formatting (2024-02-26)
+6. 2d sorting (2024-07-11)

@@ -99,7 +99,7 @@ int main() {
 
     // antidiagonal sorting, via selection sort
     COORD curr = {0, 0}; // current tail of sorted array
-    for(int i = 0; i < totalElements - 2; i++){ // -2 because of min and item
+    for(int i = 0; i < totalElements - 1; i++){
         COORD min = {curr.x, curr.y}; // smallest in unsorted array
         COORD item = {curr.x, curr.y}; // for consideration
 
